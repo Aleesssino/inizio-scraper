@@ -1,0 +1,61 @@
+# Dependency directories
+node_modules/
+jspm_packages/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Runtime files
+.pids
+*.pid
+*.seed
+*.pid.lock
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Testing
+coverage/
+*.lcov
+
+# Build directories and files
+dist/
+build/
+.bundle/
+*.bundle.js
+
+# Environment variables and secrets
+.env
+.env.local
+.env.*.local
+
+# Editor settings
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Optional npm cache
+.npm
+
+# TypeScript
+*.tsbuildinfo
+
+# Parcel-bundler cache (if applicable)
+.cache/
+
+# Miscellaneous
+*.tgz
+*.bak
+*.orig
+*.rej
+*.sublime-workspace
+
+# Temporary files
+tmp/
+temp/
