@@ -16,7 +16,6 @@ export async function scrapeGoogleSearch(query) {
 
     const results = [];
 
-    // Select search result containers
     $(".yuRUbf").each((index, element) => {
       const title = $(element).find("h3").text();
       const link = $(element).find("a").attr("href");
@@ -32,11 +31,3 @@ export async function scrapeGoogleSearch(query) {
     return [];
   }
 }
-
-// Example usage
-async function main() {
-  const searchResults = await scrapeGoogleSearch("yt");
-  console.log(searchResults);
-}
-
-main();
