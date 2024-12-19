@@ -50,7 +50,7 @@ searchForm.addEventListener("submit", async function (e) {
     resultsContainer.innerHTML =
       '<li class="p-3 text-gray-500 text-center">Loading...</li>';
     try {
-      const response = await fetch("/api/scrape", {
+      const response = await fetch("/api/search", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
