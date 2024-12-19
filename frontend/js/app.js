@@ -1,9 +1,12 @@
 const searchInput = document.getElementById("searchInput");
 const resultsContainer = document.getElementById("results");
 const searchForm = document.getElementById("searchForm");
+const downloadPdfButton = document.getElementById("downloadPdf");
 
 function displayResults(results) {
   resultsContainer.innerHTML = "";
+
+  downloadPdfButton.classList.add("hidden");
 
   if (results.length === 0) {
     resultsContainer.innerHTML =
@@ -34,6 +37,8 @@ function displayResults(results) {
     listItem.appendChild(contentDiv);
 
     resultsContainer.appendChild(listItem);
+
+    downloadPdfButton.classList.remove("hidden");
   });
 }
 
@@ -72,4 +77,34 @@ searchForm.addEventListener("submit", async function (e) {
   } else {
     resultsContainer.innerHTML = "";
   }
+});
+
+// Function to download PDF when the button is clicked
+document.getElementById("downloadPdf").addEventListener("click", async () => {
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF();
+  doc.setFont("Arial");
+  doc.setFontSize(16);
+  doc.text("Search Results", 10, 10);
+  doc.setFontSize(12);
+
+  let y = 20;
+  const results = [...resultsContainer.querySelectorAll("li")].map((li) => {
+    const title = li.querySelector("span")?.textContent || "N/A";
+    const link = li.querySelector("a")?.href || "N/A";
+    return { title, link };
+  });
+
+  if (results.length > 0) {
+    results.forEach((result) => {
+      doc.text(`Title: ${result.title}`, 10, y);
+      y += 10;
+      doc.text(`Link: ${result.link}`, 10, y);
+      y += 10;
+    });
+  } else {
+    doc.text("No results to display", 10, y);
+  }
+
+  doc.save("search_results.pdf");
 });
