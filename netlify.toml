@@ -1,0 +1,8 @@
+[build]
+publish = "frontend"
+functions = "backend/functions"
+
+[[redirects]]
+to = "/.netlify/functions/:splat"
+status = 200
+from = "/api/*"
