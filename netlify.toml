@@ -1,6 +1,6 @@
 [build]
 publish = "frontend"
-functions = "backend/functions"
+functions = "backend/netlify-functions"
 
 [[redirects]]
 to = "/.netlify/functions/:splat"
