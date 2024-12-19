@@ -1,9 +1,9 @@
 import axios from "axios";
 import * as cheerio from "cheerio";
 
+// main scraper
 export async function scrapeGoogleSearch(query) {
   try {
-    // Use a user agent to mimic a browser
     const response = await axios.get(`https://www.google.com/search`, {
       params: { q: query },
       headers: {
