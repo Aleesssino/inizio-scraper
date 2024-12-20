@@ -1,4 +1,4 @@
-import { scrapeGoogleSearch } from "../scraper.js";
+import { scrapeGoogleSearch } from "./scraper.js";
 
 export async function handler(event) {
   try {
