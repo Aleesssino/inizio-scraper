@@ -1,19 +1,18 @@
 import axios from "axios";
 import * as cheerio from "cheerio";
 
-// main scraper
+axios.defaults.baseURL = "https://www.google.com";
+axios.defaults.headers.common["User-Agent"] =
+  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36";
+
+// main scraper function
 export async function scrapeGoogleSearch(query) {
   try {
-    const response = await axios.get(`https://www.google.com/search`, {
+    const response = await axios.get("/search", {
       params: { q: query },
-      headers: {
-        "User-Agent":
-          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
-      },
     });
 
     const $ = cheerio.load(response.data);
-
     const results = [];
 
     $(".yuRUbf").each((index, element) => {
