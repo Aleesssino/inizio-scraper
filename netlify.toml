@@ -2,6 +2,9 @@
 publish = "frontend"
 functions = "backend/netlify-functions"
 
+[functions]
+node_bundler = "esbuild"
+
 [[redirects]]
 to = "/.netlify/functions/:splat"
 status = 200
