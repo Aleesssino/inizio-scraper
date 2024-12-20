@@ -13,8 +13,7 @@ Inizio-Scraper is a project developed as part of an assignment for Inizio. The p
 2. Navigate to the project directory:
 
    ```
-   cd Inizio-Scraper
-
+   cd inizio-scraper
    ```
 
 3. Install dependencies:
